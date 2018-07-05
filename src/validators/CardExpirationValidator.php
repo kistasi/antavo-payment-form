@@ -64,7 +64,7 @@ class CardExpirationValidator extends FieldValidator
     {
         if ((int) $this->expirationYear > (int) $this->currentYear) {
             return true;
-        } else if ((int) $this->expirationYear == (int) $this->currentYear) {
+        } elseif ((int) $this->expirationYear == (int) $this->currentYear) {
             return (int) $this->expirationMonth >= (int) $this->currentMonth;
         } else {
             return false;

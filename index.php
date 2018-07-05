@@ -101,7 +101,7 @@ if (!is_null($amount)) {
             <div>Every given information is valid.</div>
         <?php endif; ?>
 
-        <?php if($amountInEur): ?>
+        <?php if ($amountInEur): ?>
             <div>Price in Euro: <?php echo $amountInEur ?></div>
         <?php endif; ?>
 
