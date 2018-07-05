@@ -1,11 +1,11 @@
 <?php
 /**
- * Validate card number format with Luhn algorithm
+ * Validate card number format with the Luhn algorithm
  */
 class CardNumberValidator extends FieldValidator
 {
     /**
-     * @var string Given card number.
+     * @var string Card number.
      */
     private $cardNumber;
 
@@ -15,7 +15,7 @@ class CardNumberValidator extends FieldValidator
     }
 
     /**
-     * Check input with Luhn algorithm.
+     * Check input with the Luhn algorithm.
      *
      * @return boolean
      */
@@ -45,7 +45,7 @@ class CardNumberValidator extends FieldValidator
     public function validate()
     {
         if (!$this->isNotNull($this->cardNumber)) {
-            return 'The card number is not given.';
+            return 'The card number is not set.';
         }
 
         if (!$this->isNumeric($this->cardNumber)) {

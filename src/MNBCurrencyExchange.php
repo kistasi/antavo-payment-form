@@ -13,7 +13,7 @@ class MNBCurrencyExchange
     private $originalAmount;
 
     /**
-     * @var string The NMB's currency API URL
+     * @var string The MNB's currency API URL.
      */
     const API_URL = 'http://www.mnb.hu/arfolyamok.asmx?wsdl';
 
@@ -23,7 +23,7 @@ class MNBCurrencyExchange
     const CURRENCY_NEW = 'EUR';
 
     /**
-     * @var integer
+     * @var integer Result rounding level
      */
     const RESULT_ROUNDING = 2;
 
@@ -57,7 +57,7 @@ class MNBCurrencyExchange
     }
 
     /**
-     * Changing HUF to EUR.
+     * Change HUF to EUR.
      *
      * @return float
      */

@@ -42,7 +42,7 @@ class AmountValidator extends FieldValidator
     public function validate()
     {
         if (!$this->isNotNull($this->amount)) {
-            return 'The amount is not given.';
+            return 'The amount is not set.';
         }
 
         if (!$this->isNumeric($this->amount)) {

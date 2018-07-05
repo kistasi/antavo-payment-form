@@ -6,12 +6,12 @@
 class CardExpirationValidator extends FieldValidator
 {
     /**
-     * @var string Given expiration year.
+     * @var string Card expiration year.
      */
     protected $expirationYear;
 
     /**
-     * @var string Given expiration month.
+     * @var string Card expiration month.
      */
     protected $expirationMonth;
 
@@ -32,7 +32,7 @@ class CardExpirationValidator extends FieldValidator
     }
 
     /**
-     * Check the given input is only two characters.
+     * Check the input is only two characters.
      *
      * @param $input string Input amount
      *
@@ -44,7 +44,7 @@ class CardExpirationValidator extends FieldValidator
     }
 
     /**
-     * Get the current date in two digit format.
+     * Get the current date in two digits format.
      *
      * @return void
      */
@@ -81,11 +81,11 @@ class CardExpirationValidator extends FieldValidator
         $this->getCurrentDate();
 
         if (!$this->isNotNull($this->expirationYear)) {
-            return 'The expiration year is not given.';
+            return 'The expiration year is not set.';
         }
 
         if (!$this->isNotNull($this->expirationMonth)) {
-            return 'The expiration month us is not given.';
+            return 'The expiration month is not set.';
         }
 
         if (!$this->isNumeric($this->expirationYear)) {
@@ -105,7 +105,7 @@ class CardExpirationValidator extends FieldValidator
         }
 
         if (!$this->isNotExpired()) {
-            return 'The was card expired.';
+            return 'The card was expired.';
         }
 
         return false;

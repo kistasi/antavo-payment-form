@@ -6,7 +6,7 @@
 abstract class FieldValidator
 {
     /**
-     * Check validator given input.
+     * Check validator input set.
      *
      * @param $input string Input amount
      *
@@ -18,7 +18,7 @@ abstract class FieldValidator
     }
 
     /**
-     * Check the given input is numeric (string with numbers or integer).
+     * Check the set input is numeric.
      *
      * @param $input string Input amount
      *
@@ -30,8 +30,8 @@ abstract class FieldValidator
     }
 
     /**
-     * Every validator class have validate class method,
-     * to call the other methods and handle error messages.
+     * Every validator class have a validate class method,
+     * which call the other methods and handle error messages.
      *
      * @return boolean|string
      */

@@ -5,14 +5,17 @@ require 'src/validators/CardExpirationValidator.php';
 require 'src/validators/AmountValidator.php';
 require 'src/MNBCurrencyExchange.php';
 
+/**
+ * Check the input we want is in the $_POST.
+ *
+ * @param $input string Post value.
+ *
+ * @return string|null
+ */
 function inputExist($input)
 {
     return isset($_POST[$input]) ? $_POST[$input] : null;
 }
-
-//if (!inputExist('submit')) {
-//    return false;
-//}
 
 $cardNumber = inputExist('card_number');
 $cardNumberValidator = new CardNumberValidator($cardNumber);
