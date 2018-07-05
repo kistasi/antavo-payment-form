@@ -4,37 +4,13 @@ require 'src/validators/CardNumberValidator.php';
 require 'src/validators/CardExpirationValidator.php';
 require 'src/validators/AmountValidator.php';
 require 'src/MNBCurrencyExchange.php';
+require 'src/PaymentForm.php';
 
-/**
- * Check the input we want is in the $_POST.
- *
- * @param $input string Post value.
- *
- * @return string|null
- */
-function inputExist($input)
-{
-    return isset($_POST[$input]) ? $_POST[$input] : null;
-}
-
-$cardNumber = inputExist('card_number');
-$cardNumberValidator = new CardNumberValidator($cardNumber);
-$cardNumberErrorMessage = $cardNumberValidator->validate();
-
-$expirationYear = inputExist('card_expiration_year');
-$expirationMonth = inputExist('card_expiration_month');
-$cardExpirationValidator = new CardExpirationValidator($expirationYear, $expirationMonth);
-$cardExpirationErrorMessage = $cardExpirationValidator->validate();
-
-$amount = inputExist('amount');
-$amountValidator = new AmountValidator($amount);
-$amountErrorMessage = $amountValidator->validate();
-
-$amountInEur = null;
-if (!is_null($amount)) {
-    $MNBCurrencyExchange = new MNBCurrencyExchange($amount);
-    $amountInEur = $MNBCurrencyExchange->calculateNewAmount();
-}
+$paymentForm = new PaymentForm($_POST);
+$cardNumberErrorMessage = $paymentForm->cardNumberValidation();
+$cardExpirationErrorMessage = $paymentForm->cardExpirationValidator();
+$amountErrorMessage = $paymentForm->amountValidator();
+$amountInEur = $paymentForm->exchangeAmount();
 ?>
 
 <!doctype html>
