@@ -66,7 +66,7 @@ $amountInEur = $paymentForm->exchangeAmount();
         </fieldset>
 
         <div class="form-element">
-            <label for="amount">Amount of pay:</label>
+            <label for="amount">Amount of pay (HUF):</label>
             <input type="text" name="amount" id="amount" required minlength="1" maxlength="1000000">
             <?php if ($amountErrorMessage): ?>
                 <span class="validation-error">Validation error: <?php echo $amountErrorMessage; ?></span>
@@ -74,7 +74,7 @@ $amountInEur = $paymentForm->exchangeAmount();
         </div>
 
         <?php if (!$cardNumberErrorMessage && !$cardExpirationErrorMessage && !$amountErrorMessage): ?>
-            <div>Every given information is valid.</div>
+            <div style="color: green;">Every given information is valid.</div>
         <?php endif; ?>
 
         <?php if ($amountInEur): ?>
